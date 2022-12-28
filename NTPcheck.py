@@ -1,3 +1,4 @@
+#TODO:toevoegen gebruik maken van python: !/usr/bin/python3
 import urllib.request
 import time
 import datetime
@@ -40,7 +41,7 @@ def TimeSplit(date):
     for i in range(len(seconden)):
         date.append(seconden[i])
     return date
-
+#TODO:als het kan mooier maken ;)
 #converts month to number
 def MonthConverter(date):
     #convert the abreviated month to a number in index 1 without padded 0
@@ -81,7 +82,7 @@ def ConvertTimeToUnix(date):
     date_time = datetime.datetime(date[0], date[1], date[2], date[3], date[4], date[5])
     TimeStamp = time.mktime(date_time.timetuple())
     return TimeStamp
-
+#TODO:Betere naam geven, zoals ntp_check
 def AllTogether(url):
     URL = addHTTP(url)
     #pulls needed data from headers
@@ -102,7 +103,8 @@ def AllTogether(url):
     UnixTimeStamp = ConvertTimeToUnix(date)
     return UnixTimeStamp
 
-
+#TODO:main van maken.
+#TODO: toevoegen documentatie args zie chat
 spil = AllTogether("https://google.com")
 teVergelijken = AllTogether(InputURL) 
 #substract te difference to know if it's in sync
