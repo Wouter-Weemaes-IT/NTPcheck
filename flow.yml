@@ -1,0 +1,21 @@
+
+# The name of the checklist (preferably the same as the folder name)
+name: checklist
+# Version (used as a tag for the container image)
+version: 0.1.0
+# Tags for the checklist. (Present by default: passive, active, web, gdpr)
+#   When chosing a non existing tag, the checklist will auto provision these new tags.
+tags: [passive, web]
+# Supported types to execute the checks on. (Present by default: domain, ip, ipv6, range, range6)
+#   When chosing a non existing type, the checklist will auto provision these new types.
+type: [domain]
+# Stages are a set of checks that will run simultaneously.
+#   Beware: if a check needs output from another check they need to be executed in different stages.
+stages:
+  - name: "Stage 1"
+    # Checks must be python scripts
+    checks:
+      - NTPcheck.py
+  - name: "Stage 2"
+    checks:
+      - pythonscript2.py
